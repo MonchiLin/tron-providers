@@ -1,12 +1,14 @@
 {
   "name": "tron-providers",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
+  "repository": "https://github.com/MonchiLin/tron-providers",
+  "author": "kiki <lin912305043@gmail.com>",
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+    "setup": "pnpm install",
+    "dev:core": "pnpm --filter @monchilin/tron-providers-core dev",
+    "dev:react-native": "pnpm --filter @monchilin/tron-react-native-provider dev",
+    "preinstall": "npx only-allow pnpm"
+  }
 }

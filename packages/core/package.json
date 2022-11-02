@@ -1,14 +1,16 @@
 {
   "name": "@monchilin/tron-providers-core",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
-  "main": "./dist/tron-provider-core.umd.cjs",
-  "module": "./dist/tron-provider-core.js",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "files": ["dist"],
   "exports": {
     ".": {
-      "import": "./dist/tron-provider-core.js",
-      "require": "./dist/tron-provider-core.umd.cjs"
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
     }
   },
   "scripts": {
@@ -17,10 +19,20 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/node": "16",
+    "@types/uuid": "^8.3.4",
     "typescript": "^4.6.4",
     "vite": "^3.2.0",
-    "@types/node": "16"
+    "vite-plugin-dts": "^1.6.6",
+    "@types/lodash-es": "^4.17.6",
+    "@types/readable-stream": "^2.3.15"
   },
   "dependencies": {
+    "eventemitter3": "^4.0.7",
+    "readable-stream": "^4.2.0",
+    "lodash-es": "^4.17.21",
+    "tronweb": "^4.4.0",
+    "uuid": "^9.0.0",
+    "bs58": "^5.0.0"
   }
 }

@@ -1,1 +1,1 @@
-export class StreamProvider {}
+export class BaseProvider {}

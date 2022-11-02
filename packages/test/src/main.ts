@@ -1,23 +1,31 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import { setupCounter } from './counter'
+import { InPageProvider, Port, PortMessageStream } from "@monchilin/tron-providers-core";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+class WindowPort implements Port {
+  source: string;
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+  constructor({ source }: { source: string }) {
+    this.source = source;
+  }
+
+  addListener(listener: (event: MessageEvent) => void): void {
+    window.addEventListener("message", listener);
+  }
+
+  postMessage(message: any, targetOrigin: string): void {
+    window.postMessage(message, targetOrigin);
+  }
+
+  removeListener(listener: (event: MessageEvent) => void): void {
+    window.removeEventListener("message", listener);
+  }
+
+}
+
+const provider = new InPageProvider({
+  portMessageStream: new PortMessageStream(new WindowPort({ source: "pageHook" }))
+});
+
+setTimeout(() => {
+  window.p = provider;
+  provider.defaultAddress;
+}, 1000);

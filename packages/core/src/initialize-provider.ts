@@ -1,7 +1,7 @@
-import type * as Stream from "stream";
+import type { Duplex } from "stream";
 
 export type InitializeProviderParams = {
-  connectStream: Stream;
+  connectStream: Duplex;
 }
 
 export function initializeProvider(params: InitializeProviderParams) {

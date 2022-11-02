@@ -4,8 +4,4 @@ declare global {
   }
 }
 
-declare module 'tronweb' {
-  const o: any = {}
-
-  export = o;
-}
+export {};

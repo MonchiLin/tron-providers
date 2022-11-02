@@ -1,14 +1,14 @@
 {
   "name": "@monchilin/tron-react-native-provider",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
-  "main": "./dist/tron-provider-core.umd.cjs",
-  "module": "./dist/tron-provider-core.js",
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
   "exports": {
     ".": {
-      "import": "./dist/tron-provider-core.js",
-      "require": "./dist/tron-provider-core.umd.cjs"
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
     }
   },
   "scripts": {
@@ -19,8 +19,10 @@
   "devDependencies": {
     "typescript": "^4.6.4",
     "vite": "^3.2.0",
-    "@types/node": "16"
+    "@types/node": "16",
+    "vite-plugin-dts": "^1.6.6"
   },
   "dependencies": {
+    "@monchilin/tron-providers-core": "*"
   }
 }
